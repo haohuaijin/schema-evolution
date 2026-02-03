@@ -1,0 +1,16 @@
+[package]
+name = "schema-evolution"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+datafusion = "52"
+tokio = { version = "1", features = ["rt-multi-thread", "fs"] }
+futures = "0.3.31"
+arrow = "57"
+parquet = "57"
+tempfile = "3.20.0"
+vortex = { git = "https://github.com/vortex-data/vortex", rev = "d9fffbe027f877b52abce798ddc47d81da7743bc", features = [
+    "tokio",
+] }
+vortex-datafusion = { git = "https://github.com/vortex-data/vortex", rev = "d9fffbe027f877b52abce798ddc47d81da7743bc" }
