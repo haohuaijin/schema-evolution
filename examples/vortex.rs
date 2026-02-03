@@ -83,7 +83,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Step 3: Attempt to query both files with DataFusion
     // ============================================================================
     let ctx = SessionContext::new_with_config(SessionConfig::from_env()?);
-    let listing_options = ListingOptions::new(Arc::new(VortexFormat::new(vortex_session)));
+    let listing_options =
+        ListingOptions::new(Arc::new(VortexFormat::new(vortex_session))).with_collect_stat(true);
     let table_url = ListingTableUrl::parse(temp_path.to_str().unwrap())?;
     let table_config = ListingTableConfig::new(table_url)
         .with_listing_options(listing_options)
